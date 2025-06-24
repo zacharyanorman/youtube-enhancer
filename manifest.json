@@ -1,0 +1,30 @@
+
+{
+  "manifest_version": 2,
+  "name": "YouTube Enhancer",
+  "version": "1.0",
+  "description": "Customize YouTube: playback speed, distraction-free mode, Shorts blocker, and custom shortcuts.",
+  "permissions": [
+    "tabs",
+    "storage",
+    "*://www.youtube.com/*"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
